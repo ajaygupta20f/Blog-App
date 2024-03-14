@@ -42,33 +42,15 @@ app.use('/api/auth', authRoutes);
 //   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 // });
 
-// app.use((err, req, res, next) => {
-//   const statusCode = err.statusCode || 500;
-//   const message = err.message || 'Internal Server Error';
-//   res.status(statusCode).json({
-//     success: false,
-//     statusCode,
-//     message,
-//   });
-// });
-
-
-
-// // import express from 'express';
-// // import mongoose from 'mongoose';
-// // import dotenv from 'dotenv';
-// // dotenv.config();
-// // mongoose.connect(process.env.MONGO)
-// // .then(()=>{
-// //   console.log('mongodb connect');
-// // })
-// // .catch((err)=>{
-// //   console.log(err);
-// // })
-// // const app=express();
-// // app.listen(3000,()=>{
-// //   console.log(`server is run at port 3000`)
-// // })
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 
 
